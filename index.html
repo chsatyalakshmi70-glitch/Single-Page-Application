@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MoodWave</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #eceff1;
+      transition: background 0.6s ease;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #444;
+    }
+
+    .moods {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    button {
+      padding: 15px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #455a64;
+      color: white;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    #result {
+      margin-top: 40px;
+      font-size: 20px;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎧 MoodWave</h1>
+  <p>Select your current mood and ride the vibe.</p>
+
+  <div class="moods">
+    <button onclick="setMood('happy')">😊 Happy</button>
+    <button onclick="setMood('calm')">😌 Calm</button>
+    <button onclick="setMood('sad')">😔 Sad</button>
+    <button onclick="setMood('energetic')">⚡ Energetic</button>
+    <button onclick="setMood('stressed')">😖 Stressed</button>
+  </div>
+
+  <div id="result"></div>
+
+  <script>
+    function setMood(mood) {
+      const body = document.body;
+      const result = document.getElementById("result");
+
+      const moods = {
+        happy: {
+          color: "#fff9c4",
+          text: "Try upbeat pop or feel-good indie 🎶"
+        },
+        calm: {
+          color: "#e3f2fd",
+          text: "Lo-fi beats or ambient sounds work best 🌊"
+        },
+        sad: {
+          color: "#cfd8dc",
+          text: "Soft piano or acoustic tracks may help 🎹"
+        },
+        energetic: {
+          color: "#ffe0b2",
+          text: "EDM or workout playlists are a great match 🔥"
+        },
+        stressed: {
+          color: "#e8f5e9",
+          text: "Nature sounds or slow jazz could relax you 🍃"
+        }
+      };
+
+      body.style.background = moods[mood].color;
+      result.textContent = moods[mood].text;
+    }
+  </script>
+
+</body>
+</html>
